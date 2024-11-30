@@ -15,9 +15,10 @@ import { Alert, message, Tabs } from "antd";
 import { createStyles } from "antd-style";
 import React, { useState } from "react";
 import { flushSync } from "react-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "src/store/userSlice";
 import { useRouter } from "next/navigation";
+import { RootState } from "src/store";
 
 const useStyles = createStyles(({ token }) => {
   return {
@@ -71,6 +72,8 @@ const LoginMessage: React.FC<{
 };
 
 const Login: React.FC = () => {
+  const currentUserInfo = useSelector((state: RootState) => state.user);
+
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>("account");
   const { styles } = useStyles();

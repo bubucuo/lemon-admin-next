@@ -168,6 +168,7 @@ const App: React.FC = () => {
   return (
     <div className={styles.main}>
       omg
+      <p className={styles.sub}>sub</p>
       <h1 className="text-blue-500 font-bold">Editable Table</h1>
       <Form form={form} component={false}>
         <Table<DataType>

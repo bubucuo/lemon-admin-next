@@ -11,19 +11,13 @@ const nextConfig = {
         source: "/api/user/list", // 本地路径，以 `/api` 开头的所有请求
         destination: "http://localhost:3000/user/list", // 转发到目标地址（本地服务）
       },
-
-      //   {
-      //     source: "/api", // 本地路径
-      //     destination: "http://localhost:3000", // nest/express
-      //     changeOrigin: true,
-      //     rewrite: (path) => path.replace(/^\/api/, ""),
-      //   },
-
+  
       // dashboard
       {
         source: '/api/:path*',
         destination: 'https://proapi.azurewebsites.net/:path*', // Target API
       },
+
     ];
   },
 };

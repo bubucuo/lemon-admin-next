@@ -2,18 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import { Flex } from "antd";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { MenuProps } from "antd/lib";
 
 const CustomHeader: React.FC = (props) => {
-  const user = useSelector((state) => state.user);
-  console.log(
-    "%c [ user ]-12",
-    "font-size:13px; background:pink; color:#bf2c9f;",
-    user
-  );
+  const user = { name: "header user" }; //useSelector((state) => state.user);
   const items: MenuProps["items"] = [
     {
       label: <a>退出登录</a>,
@@ -38,7 +33,7 @@ const CustomHeader: React.FC = (props) => {
             e.preventDefault();
           }}
         >
-          {user?.name}
+          {user?.name || "用户"}
           <DownOutlined />
         </a>
       </Dropdown>

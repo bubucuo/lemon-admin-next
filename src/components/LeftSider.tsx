@@ -24,7 +24,10 @@ const items: MenuItem[] = [
     icon: <DashboardOutlined />,
     label: "Dashboard",
     children: [
-      { key: "analysis", label: "Analysis" },
+      {
+        key: "analysis",
+        label: "Analysis",
+      },
       { key: "monitor", label: "Monitor" },
       { key: "workplace", label: "Workplace" },
     ],

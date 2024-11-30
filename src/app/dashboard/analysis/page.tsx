@@ -1,7 +1,7 @@
 "use client";
 import { EllipsisOutlined } from "@ant-design/icons";
 import { GridContent } from "@ant-design/pro-components";
-import { Col, Dropdown, Row } from "antd";
+import { Col, Dropdown, Row, message } from "antd";
 import type { RangePickerProps } from "antd/es/date-picker/generatePicker";
 import type { RadioChangeEvent } from "antd/es/radio";
 import type dayjs from "dayjs";
@@ -33,7 +33,7 @@ export default function Analysis() {
   );
 
   const [loading, setLoading] = useState(true); // 定义 state 存储加载状态
-  const [data, setData] = useState(null); // 定义 state 存储数据
+  const [data, setData] = useState(null); // 定义 state 存储数据。没有做缓存。如果想做缓存，可以存储到 localStorage/session 中。常见使用redux-persist
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +48,9 @@ export default function Analysis() {
 
     fetchData(); // 调用异步函数
   }, []);
+
+
+
 
   const selectDate = (type: TimeType) => {
     setRangePickerValue(getTimeDistance(type));

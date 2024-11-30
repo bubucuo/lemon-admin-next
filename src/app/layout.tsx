@@ -35,27 +35,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoreProvider>
-          <AntdRegistry>
-            <Layout className="flex w-screen pt-[56px]">
-              <Header />
-              <Layout className="pl-[200px]">
-                <Sider
-                  className="h-screen fixed top-[56px] left-0"
-                  theme="light"
-                  style={{
-                    position: "fixed",
-                  }}
-                >
-                  <LeftSider />
-                </Sider>
-                <Content className="flex-1 p-4 overflow-auto">
-                  {children}
-                </Content>
-              </Layout>
+        <AntdRegistry>
+          <Layout className="flex w-screen pt-[56px]">
+            <Header />
+            <Layout className="pl-[200px]">
+              <Sider
+                className="h-screen fixed top-[56px] left-0 "
+                theme="light"
+                style={{
+                  position: "fixed",
+                }}
+              >
+                <LeftSider />
+              </Sider>
+              <Content className="flex-1 p-4 overflow-auto">
+                <StoreProvider>{children}</StoreProvider>
+              </Content>
             </Layout>
-          </AntdRegistry>
-        </StoreProvider>
+          </Layout>
+        </AntdRegistry>
       </body>
     </html>
   );

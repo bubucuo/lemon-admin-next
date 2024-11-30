@@ -1,3 +1,7 @@
 .main {
   color: red;
+
+  .sub {
+    color: blue;
+  }
 }
